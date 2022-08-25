@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <style>
+        .pill_karte {
+            background-color: #66ffff;
+            border: none;
+            color: black;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+
+        .pill_pin {
+            background-color: #66ffb3;
+            border: none;
+            color: black;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+
 <body>
 
 
@@ -47,8 +77,13 @@
         <option value="Donnerstag">Donnerstag</option>
         <option value="Freitag">Freitag</option>
     </select>
-    <p>Die Karte kommt wahrscheinlich am <span id="kartetag">Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</p>
-    <p>Die Pin kommt wahrscheinlich am <span id="pintag">Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</p>
+    <br>
+    <br>
+    <span>Die <span class='pill_karte'>Karte</span> kommt wahrscheinlich am <span id="kartetag" class='pill_karte'>Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</span>
+    <br>
+    <span>Die <span class='pill_pin'>PIN</span> kommt wahrscheinlich am <span id="pintag" class='pill_pin'>Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</span>
+
+
 
 </body>
 
