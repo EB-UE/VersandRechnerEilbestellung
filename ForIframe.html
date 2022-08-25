@@ -48,11 +48,11 @@
     </script>
     <select id="tageswahl" onchange="infosAnzeigen(event);">
         <option value="-1">Tag wählen</option>
-        <option value="Montag">Montag</option>
-        <option value="Dienstag">Dienstag</option>
-        <option value="Mittwoch">Mittwoch</option>
-        <option value="Donnerstag">Donnerstag</option>
-        <option value="Freitag">Freitag</option>
+        <option value="1">Montag</option>
+        <option value="2">Dienstag</option>
+        <option value="3">Mittwoch</option>
+        <option value="4">Donnerstag</option>
+        <option value="5">Freitag</option>
     </select>
     <br>
     <br>
@@ -93,7 +93,7 @@
             }
 
             let element = document.getElementById('tageswahl');
-            element.value = Berechnung[new Date().getDay()].heute;
+            element.value = new Date().getDay();
             element.dispatchEvent(new Event('change'));
         })
     </script>
