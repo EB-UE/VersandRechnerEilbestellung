@@ -6,36 +6,37 @@
 
     <script type="text/javascript">
         Berechnung = {
-                'Montag': {
-                    kartetag: 'Mittwoch',
-                    pintag: 'Donnerstag'
-                },
-                'Dienstag': {
-                    kartetag: 'Donnerstag',
-                    pintag: 'Freitag'
-                },
-                'Mittwoch': {
-                    kartetag: 'Freitag',
-                    pintag: 'Samstag'
-                },
-                'Donnerstag': {
-                    kartetag: 'Samstag',
-                    pintag: 'Dienstag'
-                },
-                'Freitag': {
-                    kartetag: 'Dienstag',
-                    pintag: 'Mittwoch'
-                },
+            'Montag': {
+                kartetag: 'Mittwoch',
+                pintag: 'Donnerstag'
+            },
+            'Dienstag': {
+                kartetag: 'Donnerstag',
+                pintag: 'Freitag'
+            },
+            'Mittwoch': {
+                kartetag: 'Freitag',
+                pintag: 'Samstag'
+            },
+            'Donnerstag': {
+                kartetag: 'Samstag',
+                pintag: 'Dienstag'
+            },
+            'Freitag': {
+                kartetag: 'Dienstag',
+                pintag: 'Mittwoch'
+            },
         }
 
         function infosAnzeigen(event) {
             gewählterTag = event.target.value
+            if (Berechnung[gewählterTag]) {
+                kartetag = Berechnung[gewählterTag].kartetag
+                document.getElementById("kartetag").innerHTML = kartetag;
 
-            kartetag = Berechnung[gewählterTag].kartetag
-            document.getElementById("kartetag").innerHTML = kartetag;
-
-            pintag = Berechnung[gewählterTag].pintag
-            document.getElementById("pintag").innerHTML = pintag;
+                pintag = Berechnung[gewählterTag].pintag
+                document.getElementById("pintag").innerHTML = pintag;
+            }
         }
     </script>
     <select name="tag" onchange="infosAnzeigen(event);">
@@ -46,8 +47,8 @@
         <option value="Donnerstag">Donnerstag</option>
         <option value="Freitag">Freitag</option>
     </select>
-    <p>Die Karte kommt wahrscheinlich am <span id="kartetag"></span> zwischen 8 Uhr und 12 Uhr.</p>
-    <p>Die Pin kommt wahrscheinlich am: <span id="pintag"></span> zwischen 8 Uhr und 12 Uhr.</p>
+    <p>Die Karte kommt wahrscheinlich am <span id="kartetag">Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</p>
+    <p>Die Pin kommt wahrscheinlich am <span id="pintag">Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</p>
 
 </body>
 
