@@ -12,11 +12,10 @@
         <option value="Donnerstag">Donnerstag</option>
         <option value="Freitag">Freitag</option>
     </select>
-    <p id="heute">test</p>
     <p id="kartetag">test</p>
     <p id="pintag">test</p>
 
-    <script>
+    <script type="text/javascript">
         Berechnung = {
                 'Montag': {
                     kartetag: 'Mittwoch',
@@ -27,7 +26,6 @@
                     pintag: 'Freitag'
                 },
                 'Mittwoch': {
-                    heute: 'Mittwoch',
                     kartetag: 'Freitag',
                     pintag: 'Samstag'
                 },
@@ -39,20 +37,10 @@
                     kartetag: 'Dienstag',
                     pintag: 'Mittwoch'
                 },
-                'Samstag: {
-                kartetag: 'heute kann nicht bestellt werden',
-                pintag: 'heute kann nicht bestellt werden'
-            },
-            'Sonntag': {
-                kartetag: 'heute kann nicht bestellt werden',
-                pintag: 'heute kann nicht bestellt werden'
-            },
         }
 
         function infosAnzeigen(event) {
             gewählterTag = event.target.value
-            heute = Berechnung[gewählterTag].heute
-            document.getElementById("heute").innerHTML = `heute ist: ${heute}`;
 
             kartetag = Berechnung[gewählterTag].kartetag
             document.getElementById("kartetag").innerHTML = `Die Karte kommt wahrscheinlich am: ${kartetag}`;
