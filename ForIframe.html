@@ -3,11 +3,11 @@
 
 <body>
 
-    <p id="demo">test</p>
+    <p id="heute">test</p>
+    <p id="kartetag">test</p>
+    <p id="pintag">test</p>
 
     <script>
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-
         Berechnung = {
             // Montag
             1: {
@@ -52,11 +52,15 @@
         }
 
         today = new Date().getDay()
-        heute = Berechnung[today].heute
-        kartetag = Berechnung[today].kartetag
-        pintag = Berechnung[today].pintag
 
-        document.getElementById("demo").innerHTML = `heute ist: ${heute} Die Karte kommt wahrscheinlich am: ${kartetag} und die Pin kommt wahrscheinlich am: ${pintag}`;
+        heute = Berechnung[today].heute
+        document.getElementById("heute").innerHTML = `heute ist: ${heute}`;
+
+        kartetag = Berechnung[today].kartetag
+        document.getElementById("kartetag").innerHTML = `Die Karte kommt wahrscheinlich am: ${kartetag}`;
+
+        pintag = Berechnung[today].pintag
+        document.getElementById("pintag").innerHTML = `Die Pin kommt wahrscheinlich am: ${pintag}`;
     </script>
 </body>
 
