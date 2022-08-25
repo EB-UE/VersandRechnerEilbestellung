@@ -32,10 +32,10 @@
             gewählterTag = event.target.value
 
             kartetag = Berechnung[gewählterTag].kartetag
-            document.getElementById("kartetag").innerHTML = `Die Karte kommt wahrscheinlich am: ${kartetag}`;
+            document.getElementById("kartetag").innerHTML = kartetag;
 
             pintag = Berechnung[gewählterTag].pintag
-            document.getElementById("pintag").innerHTML = `Die Pin kommt wahrscheinlich am: ${pintag}`;
+            document.getElementById("pintag").innerHTML = pintag;
         }
     </script>
     <select name="tag" onchange="infosAnzeigen(event);">
