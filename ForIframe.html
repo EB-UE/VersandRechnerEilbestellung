@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<p id="demo">test</p>
+    <p id="demo">test</p>
 
-<script>
-document.getElementById("demo").innerHTML = "Hello JavaScript!";
-</script>
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+
+        Berechnung = {
+            // Montag
+            1: {
+                heute: 'Montag',
+                kartetag: 'Mittwoch',
+                pintag: 'Donnerstag'
+            },
+            // Dienstag
+            2: {
+                heute: 'Dienstag',
+                kartetag: 'Donnerstag',
+                pintag: 'Freitag'
+            },
+            // Mittwoch
+            3: {
+                heute: 'Mittwoch',
+                kartetag: 'Freitag',
+                pintag: 'Samstag'
+            },
+            // Donnerstag
+            4: {
+                heute: 'Donnerstag',
+                kartetag: 'Samstag',
+                pintag: 'Dienstag'
+            },
+            //Freitag
+            5: {
+                heute: 'Freitag',
+                kartetag: 'Dienstag',
+                pintag: 'Mittwoch'
+            },
+            6: {
+                heute: 'Samstag',
+                kartetag: 'heute kann nicht bestellt werden',
+                pintag: 'heute kann nicht bestellt werden'
+            },
+            0: {
+                heute: 'Sonntag',
+                kartetag: 'heute kann nicht bestellt werden',
+                pintag: 'heute kann nicht bestellt werden'
+            },
+        }
+
+        today = new Date().getDay()
+        heute = Berechnung[today].heute
+        kartetag = Berechnung[today].kartetag
+        pintag = Berechnung[today].pintag
+
+        document.getElementById("demo").innerHTML = `heute ist: ${heute} Die Karte kommt wahrscheinlich am: ${kartetag} und die Pin kommt wahrscheinlich am: ${pintag}`;
+    </script>
 </body>
-</html> 
 
+</html>
