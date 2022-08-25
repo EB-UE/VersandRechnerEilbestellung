@@ -3,64 +3,63 @@
 
 <body>
 
+
+    <select name="tag" onchange="infosAnzeigen()">
+        <option value="-1">Tag wählen</option>
+        <option value="Montag">Montag</option>
+        <option value="Dienstag">Dienstag</option>
+        <option value="Mittwoch">Mittwoch</option>
+        <option value="Donnerstag">Donnerstag</option>
+        <option value="Freitag">Freitag</option>
+    </select>
     <p id="heute">test</p>
     <p id="kartetag">test</p>
     <p id="pintag">test</p>
 
     <script>
         Berechnung = {
-            // Montag
-            1: {
-                heute: 'Montag',
-                kartetag: 'Mittwoch',
-                pintag: 'Donnerstag'
-            },
-            // Dienstag
-            2: {
-                heute: 'Dienstag',
-                kartetag: 'Donnerstag',
-                pintag: 'Freitag'
-            },
-            // Mittwoch
-            3: {
-                heute: 'Mittwoch',
-                kartetag: 'Freitag',
-                pintag: 'Samstag'
-            },
-            // Donnerstag
-            4: {
-                heute: 'Donnerstag',
-                kartetag: 'Samstag',
-                pintag: 'Dienstag'
-            },
-            //Freitag
-            5: {
-                heute: 'Freitag',
-                kartetag: 'Dienstag',
-                pintag: 'Mittwoch'
-            },
-            6: {
-                heute: 'Samstag',
+                'Montag': {
+                    kartetag: 'Mittwoch',
+                    pintag: 'Donnerstag'
+                },
+                'Dienstag': {
+                    kartetag: 'Donnerstag',
+                    pintag: 'Freitag'
+                },
+                'Mittwoch': {
+                    heute: 'Mittwoch',
+                    kartetag: 'Freitag',
+                    pintag: 'Samstag'
+                },
+                'Donnerstag': {
+                    kartetag: 'Samstag',
+                    pintag: 'Dienstag'
+                },
+                'Freitag': {
+                    kartetag: 'Dienstag',
+                    pintag: 'Mittwoch'
+                },
+                'Samstag: {
                 kartetag: 'heute kann nicht bestellt werden',
                 pintag: 'heute kann nicht bestellt werden'
             },
-            0: {
-                heute: 'Sonntag',
+            'Sonntag': {
                 kartetag: 'heute kann nicht bestellt werden',
                 pintag: 'heute kann nicht bestellt werden'
             },
         }
 
-        today = new Date().getDay()
+        function infosAnzeigen(event) {
+            gewählterTag = event.target.value
+            heute = Berechnung[gewählterTag].heute
+            document.getElementById("heute").innerHTML = `heute ist: ${heute}`;
 
-        heute = Berechnung[today].heute
-        document.getElementById("heute").innerHTML = `heute ist: ${heute}`;
+            kartetag = Berechnung[gewählterTag].kartetag
+            document.getElementById("kartetag").innerHTML = `Die Karte kommt wahrscheinlich am: ${kartetag}`;
 
-        kartetag = Berechnung[today].kartetag
-        document.getElementById("kartetag").innerHTML = `Die Karte kommt wahrscheinlich am: ${kartetag}`;
-
-        pintag = Berechnung[today].pintag
-        document.getElementById("pintag").innerHTML = `Die Pin kommt wahrscheinlich am: ${pintag}`;
+            pintag = Berechnung[gewählterTag].pintag
+            document.getElementById("pintag").innerHTML = `Die Pin kommt wahrscheinlich am: ${pintag}`;
+        }
     </script>
 </body>
 
