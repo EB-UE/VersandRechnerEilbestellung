@@ -35,29 +35,6 @@
 
 
     <script type="text/javascript">
-        Berechnung = {
-            'Montag': {
-                kartetag: 'Mittwoch',
-                pintag: 'Donnerstag'
-            },
-            'Dienstag': {
-                kartetag: 'Donnerstag',
-                pintag: 'Freitag'
-            },
-            'Mittwoch': {
-                kartetag: 'Freitag',
-                pintag: 'Samstag'
-            },
-            'Donnerstag': {
-                kartetag: 'Samstag',
-                pintag: 'Dienstag'
-            },
-            'Freitag': {
-                kartetag: 'Dienstag',
-                pintag: 'Mittwoch'
-            },
-        }
-
         function infosAnzeigen(event) {
             gewählterTag = event.target.value
             if (Berechnung[gewählterTag]) {
@@ -69,7 +46,7 @@
             }
         }
     </script>
-    <select name="tag" onchange="infosAnzeigen(event);">
+    <select id="tageswahl" onchange="infosAnzeigen(event);">
         <option value="-1">Tag wählen</option>
         <option value="Montag">Montag</option>
         <option value="Dienstag">Dienstag</option>
@@ -84,7 +61,42 @@
     <span>Die <span class='pill_pin'>PIN</span> kommt wahrscheinlich am <span id="pintag" class='pill_pin'>Tag Wählen</span> zwischen 8 Uhr und 12 Uhr.</span>
 
 
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
 
+            Berechnung = {
+                1: {
+                    heute: 'Montag',
+                    kartetag: 'Mittwoch',
+                    pintag: 'Donnerstag',
+                },
+                2: {
+                    heute: 'Dienstag',
+                    kartetag: 'Donnerstag',
+                    pintag: 'Freitag',
+                },
+                3: {
+                    heute: 'Mittwoch',
+                    kartetag: 'Freitag',
+                    pintag: 'Samstag',
+                },
+                4: {
+                    heute: 'Donnerstag',
+                    kartetag: 'Samstag',
+                    pintag: 'Dienstag',
+                },
+                5: {
+                    heute: 'Freitag',
+                    kartetag: 'Dienstag',
+                    pintag: 'Mittwoch',
+                },
+            }
+
+            let element = document.getElementById('tageswahl');
+            element.value = Berechnung[new Date().getDay()].heute;
+            element.dispatchEvent(new Event('change'));
+        })
+    </script>
 </body>
 
 </html>
