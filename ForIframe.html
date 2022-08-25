@@ -4,17 +4,6 @@
 <body>
 
 
-    <select name="tag" onchange="infosAnzeigen()">
-        <option value="-1">Tag wählen</option>
-        <option value="Montag">Montag</option>
-        <option value="Dienstag">Dienstag</option>
-        <option value="Mittwoch">Mittwoch</option>
-        <option value="Donnerstag">Donnerstag</option>
-        <option value="Freitag">Freitag</option>
-    </select>
-    <p id="kartetag">test</p>
-    <p id="pintag">test</p>
-
     <script type="text/javascript">
         Berechnung = {
                 'Montag': {
@@ -49,6 +38,17 @@
             document.getElementById("pintag").innerHTML = `Die Pin kommt wahrscheinlich am: ${pintag}`;
         }
     </script>
+    <select name="tag" onchange="infosAnzeigen(event);">
+        <option value="-1">Tag wählen</option>
+        <option value="Montag">Montag</option>
+        <option value="Dienstag">Dienstag</option>
+        <option value="Mittwoch">Mittwoch</option>
+        <option value="Donnerstag">Donnerstag</option>
+        <option value="Freitag">Freitag</option>
+    </select>
+    <p id="kartetag">test</p>
+    <p id="pintag">test</p>
+
 </body>
 
 </html>
